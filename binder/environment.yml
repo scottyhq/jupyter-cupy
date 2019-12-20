@@ -7,7 +7,6 @@ dependencies:
   - jupyterhub=1.0
   - jupyter-server-proxy=1.2
   - nbgitpuller=0.8
-  - cupy=7.0
   - dask=2.9
   - distributed=2.9
   - dask-kubernetes=0.10
@@ -16,3 +15,5 @@ dependencies:
   - bokeh=1.4
   - python-graphviz=0.13
   - pip=19.3
+  - pip:
+    - cupy-cuda100
