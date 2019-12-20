@@ -10,8 +10,8 @@ dependencies:
   - nbgitpuller=0.8
 # CUDA 
   - cupy=7.0
-  - cudatoolkit=10.0
-  - cudatoolkit-dev=10.0
+  - cudatoolkit=10.1
+  - cudatoolkit-dev=10.1
 # DASK
   - dask=2.9
   - distributed=2.9
