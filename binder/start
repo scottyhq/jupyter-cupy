@@ -1,7 +1,8 @@
 #!/bin/bash
 
-export NVIDIA_VISIBLE_DEVICES=all
-export NVIDIA_DRIVER_CAPABILITIES=compute,utility
+export NVIDIA_VISIBLE_DEVICES="all"
+export NVIDIA_DRIVER_CAPABILITIES="compute,utility"
+export MY_ENVVAR="test"
 
 # Otherwise we end up in REPO_DIR=/srv/repo2docker since we're building with --target-repo-dir
 cd $HOME
