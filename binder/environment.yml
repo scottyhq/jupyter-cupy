@@ -1,24 +1,67 @@
-# packages in addition to repo2docker/buildpacks/conda/environment.yml
-name: cupy
+name: pangeoml
 channels:
   - conda-forge
 dependencies:
-# JUPYTER
+  # base image 
+  - python=3.7
   - jupyterlab=1.2
   - jupyterhub=1.0
   - jupyter-server-proxy=1.2
   - nbgitpuller=0.8
-# CUDA 
-  - cupy=7.0
-  - cudatoolkit=10.1
-  - cudatoolkit-dev=10.1
-# DASK
   - dask=2.9
   - distributed=2.9
   - dask-kubernetes=0.10
-  - dask-labextension=1.0
-  - python-graphviz=0.13
-# OTHER
-  - tornado=6.0
+  - dask-gateway=0.6
+  - dask-labextension=1
+  - tornado=6
   - bokeh=1.4
+  - python-graphviz=0.13
   - pip=19.3
+  # core scipy packages
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - xarray>=0.14.0
+  - sparse
+  # data science stuff
+  - scikit-image
+  - scikit-learn
+  - dask-ml
+  - tensorflow-gpu
+  - keras-gpu
+#  - pytorch-gpu #conda solver issues
+  - cupy
+  # pyviz
+  - holoviews
+  - panel
+  - geoviews
+  - hvplot
+  - geoviews
+  - datashader
+  # geospatial
+  - cartopy
+  - geopandas
+  - rasterio
+  - netcdf4
+  - h5py
+  - h5netcdf
+  - regionmask
+  - rio-cogeo
+  # intake-related
+  - intake
+  - intake-xarray
+  - intake-esm
+  # zarr-related
+  - zarr
+  - numcodecs
+  - python-blosc
+  - lz4
+  - gcsfs
+  - s3fs
+  - tiledb-py
+  # xarray-related
+  - xgcm
+  - xrft
+  - pip:
+    - jupyterlab-nvdashboard
