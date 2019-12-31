@@ -45,12 +45,6 @@ jobs:
       run: |
         python --version
         pip install -r requirements.txt
-    - name: Authenticate with DockerHub
-      # Consider GitHub Packages once they allow for unathenticated pulling
-      # https://github.com/actions/starter-workflows/blob/master/ci/docker-push.yml
-      # echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-      run: |
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Build Image
       # Add folder of artifacts related to build that anyone can download
       run: |
@@ -76,6 +70,13 @@ jobs:
         docker tag $CONTAINER_NAME:latest $CONTAINER_NAME:$DOCKER_TAG
         docker push $CONTAINER_NAME:$DOCKER_TAG
         docker push $CONTAINER_NAME:latest
+    - name: Authenticate with DockerHub
+      if: startswith(github.ref, 'refs/tags/')
+      # Consider GitHub Packages once they allow for unathenticated pulling
+      # https://github.com/actions/starter-workflows/blob/master/ci/docker-push.yml
+      # echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Push Tagged Release Image to DockerHub
       # Only run this for 'git push --tags'
       if: startswith(github.ref, 'refs/tags/')
