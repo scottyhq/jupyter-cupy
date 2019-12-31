@@ -1,6 +1,7 @@
 name: pangeoml
 channels:
   - conda-forge
+  - rapidsai-nightly
 dependencies:
   # base image 
   - python=3.7
@@ -32,6 +33,9 @@ dependencies:
   - keras-gpu
 #  - pytorch-gpu #conda solver issues
   - cupy
+  - cudf
+  - rmm
+  - cuspatial
   # pyviz
   - holoviews
   - panel
