@@ -31,7 +31,7 @@ dependencies:
   - dask-ml
   - tensorflow-gpu
   - keras-gpu
-#  - pytorch-gpu #conda solver issues
+  - pytorch-cpu
   - cupy
   - cudf
   - rmm
